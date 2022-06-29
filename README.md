@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # licencias
 
 A new Flutter project.
@@ -14,3 +15,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# QUERETARO_LICENCIAS
+Demo de una aplicación móvil para el cobro de licencias comerciales, con oferta de descuentos exclusivos
+>>>>>>> e4f9bf1f222a615d12d82e1e1dfe51c838f6aea3
