@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:licencias/screens/payment_screen.dart';
+import 'package:licencias/styles/global_styles.dart';
 import 'package:licencias/widgets/nav_pages.dart';
 import 'package:line_icons/line_icons.dart';
 
@@ -36,14 +37,14 @@ class _HomeScreenState extends State<HomeScreen> {
     return WillPopScope(
       onWillPop: () => Future.value(false),
       child: AdvancedDrawer(
-        backdropColor: Color(0xff76a6cf),
+        backdropColor: CustomColors.lightBlue,
         controller: _advancedDrawerController,
         animationCurve: Curves.easeInOut,
         animationDuration: const Duration(milliseconds: 300),
         animateChildDecoration: true,
         rtlOpening: false,
         // openScale: 1.0,
-        disabledGestures: false,
+        disabledGestures: true,
         childDecoration: const BoxDecoration(
           // NOTICE: Uncomment if you want to add shadow behind the page.
           // Keep in mind that it may cause animation jerks.
@@ -56,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
           borderRadius: const BorderRadius.all(Radius.circular(16)),
         ),
         child: Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: CustomColors.white,
 
           /// Creating an AppBar widget with a title and a centerTitle property.
           appBar: AppBar(
@@ -73,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   return AnimatedSwitcher(
                     duration: Duration(milliseconds: 250),
                     child: Icon(
-                      value.visible ? Icons.clear : Icons.menu,
+                      value.visible ? LineIcons.times : LineIcons.bars,
                       key: ValueKey<bool>(value.visible),
                     ),
                   );
@@ -93,11 +94,11 @@ class _HomeScreenState extends State<HomeScreen> {
           /// Creating a bottom navigation bar with 4 buttons.
           bottomNavigationBar: Container(
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: CustomColors.white,
               boxShadow: [
                 BoxShadow(
                   blurRadius: 20,
-                  color: Colors.black.withOpacity(.1),
+                  color: CustomColors.black!.withOpacity(.1),
                 )
               ],
             ),
@@ -106,15 +107,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
                 child: GNav(
-                  rippleColor: Colors.grey[300]!,
-                  hoverColor: Colors.grey[100]!,
+                  rippleColor: CustomColors.clearGrey!,
+                  hoverColor: CustomColors.white!,
                   gap: 8,
-                  activeColor: Colors.black,
+                  activeColor: CustomColors.black,
                   iconSize: 24,
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                   duration: Duration(milliseconds: 400),
-                  tabBackgroundColor: Colors.grey[100]!,
-                  color: Colors.black,
+                  tabBackgroundColor: CustomColors.white!,
+                  color: CustomColors.black,
 
                   /// Creating a list of GButton widgets.
                   tabs: [
@@ -154,8 +155,8 @@ class _HomeScreenState extends State<HomeScreen> {
         drawer: SafeArea(
           child: Container(
             child: ListTileTheme(
-              textColor: Colors.white,
-              iconColor: Colors.white,
+              textColor: CustomColors.white,
+              iconColor: CustomColors.white,
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -176,13 +177,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   ListTile(
                     onTap: () {},
-                    leading: Icon(Icons.account_circle_rounded),
+                    leading: Icon(
+                      LineIcons.userCircle,
+                      size: 28,
+                    ),
                     title: Text('Perfil'),
                   ),
                   ListTile(
                     onTap: () {},
                     leading: Icon(
-                      Icons.shopping_bag,
+                      LineIcons.tags,
+                      size: 28,
                     ),
                     title: Text('Mis ofertas'),
                   ),
@@ -195,29 +200,41 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       );
                     },
-                    leading: Icon(Icons.monetization_on),
+                    leading: Icon(
+                      LineIcons.fileInvoiceWithUsDollar,
+                      size: 28,
+                    ),
                     title: Text('Pago de licencia'),
                   ),
                   ListTile(
                     onTap: () {},
-                    leading: Icon(Icons.message),
+                    leading: Icon(
+                      LineIcons.comments,
+                      size: 28,
+                    ),
                     title: Text('Mensajes'),
                   ),
                   ListTile(
                     onTap: () {},
-                    leading: Icon(Icons.settings),
+                    leading: Icon(
+                      LineIcons.cog,
+                      size: 28,
+                    ),
                     title: Text('Ajustes'),
                   ),
                   ListTile(
                     onTap: () {},
-                    leading: Icon(Icons.help),
+                    leading: Icon(
+                      LineIcons.questionCircle,
+                      size: 28,
+                    ),
                     title: Text('Ayuda'),
                   ),
                   Spacer(),
                   DefaultTextStyle(
                     style: TextStyle(
                       fontSize: 12,
-                      color: Colors.white54,
+                      color: CustomColors.white54,
                     ),
                     child: Container(
                       margin: const EdgeInsets.symmetric(

@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:licencias/screens/await_screen.dart';
 import 'package:licencias/screens/signup_screen.dart';
+import 'package:licencias/styles/global_styles.dart';
 import 'package:licencias/widgets/simple_form_input.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../screens/home_screen.dart';
@@ -131,23 +133,23 @@ class _StepperFormState extends State<StepperForm> {
               height: 54,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                    colors: [(new Color(0xff4d6999)), new Color(0xff6693c2)],
+                    colors: [CustomColors.subBlue, CustomColors.softBlue],
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight),
                 borderRadius: BorderRadius.circular(50),
-                color: Colors.grey[200],
+                color: CustomColors.lightGrey,
                 boxShadow: [
                   BoxShadow(
                       offset: Offset(0, 10),
                       blurRadius: 50,
-                      color: Color(0xffEEEEEE)),
+                      color: CustomColors.shadowWhite),
                 ],
               ),
               child: Text(
                 _currentStep == getSteps().length - 1
                     ? "Enviar solicitud"
                     : "Continuar",
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: CustomColors.white),
               ),
             ),
           ),
@@ -160,7 +162,7 @@ class _StepperFormState extends State<StepperForm> {
               height: 54,
               child: Text(
                 "Cancelar",
-                style: TextStyle(color: Colors.grey[400]),
+                style: TextStyle(color: CustomColors.softGrey),
               ),
             ),
           ),
@@ -273,7 +275,7 @@ class _StepperFormState extends State<StepperForm> {
                     });
                   },
                   isExpanded: true,
-                  icon: Icon(Icons.arrow_drop_down),
+                  icon: Icon(LineIcons.caretDown),
                 ),
               ),
               /* Checkboxes */
@@ -463,6 +465,7 @@ class _StepperFormState extends State<StepperForm> {
                 visible: _curpOrRFCSelected == CurpRFCOptions.Curp,
                 child: FormSimpleInput(
                   textFormatter: curpMaskFormatter,
+                  hasFormat: true,
                   controller: curp,
                   hintText: "CURP",
                 ),
@@ -471,6 +474,7 @@ class _StepperFormState extends State<StepperForm> {
                 visible: _curpOrRFCSelected == CurpRFCOptions.RFC,
                 child: FormSimpleInput(
                   textFormatter: rfcMaskFormatter,
+                  hasFormat: true,
                   controller: rfc,
                   hintText: "RFC",
                 ),
@@ -694,7 +698,7 @@ class _StepperFormState extends State<StepperForm> {
                     });
                   },
                   isExpanded: true,
-                  icon: Icon(Icons.arrow_drop_down),
+                  icon: Icon(LineIcons.caretDown),
                 ),
               ),
               FormSimpleInput(
@@ -740,7 +744,7 @@ class _StepperFormState extends State<StepperForm> {
                     });
                   },
                   isExpanded: true,
-                  icon: Icon(Icons.arrow_drop_down),
+                  icon: Icon(LineIcons.caretDown),
                 ),
               ),
               FormSimpleInput(
@@ -875,7 +879,7 @@ class _StepperFormState extends State<StepperForm> {
                     });
                   },
                   isExpanded: true,
-                  icon: Icon(Icons.arrow_drop_down),
+                  icon: Icon(LineIcons.caretDown),
                 ),
               ),
               /* Dropdown*/
@@ -911,7 +915,7 @@ class _StepperFormState extends State<StepperForm> {
                     });
                   },
                   isExpanded: true,
-                  icon: Icon(Icons.arrow_drop_down),
+                  icon: Icon(LineIcons.caretDown),
                 ),
               ),
               FormSimpleInput(
@@ -942,12 +946,12 @@ class _StepperFormState extends State<StepperForm> {
             height: 250,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: Colors.grey[200],
+              color: CustomColors.lightGrey,
               boxShadow: [
                 BoxShadow(
                     offset: Offset(0, 10),
                     blurRadius: 50,
-                    color: Color(0xffEEEEEE)),
+                    color: CustomColors.shadowWhite),
               ],
             ),
             child: MiniMapsLocation(),
@@ -979,17 +983,17 @@ class _StepperFormState extends State<StepperForm> {
                     padding: EdgeInsets.only(left: 20, right: 20),
                     height: 54,
                     decoration: BoxDecoration(
-                      color: Colors.grey[300],
+                      color: CustomColors.clearGrey,
                       boxShadow: [
                         BoxShadow(
                             offset: Offset(0, 10),
                             blurRadius: 50,
-                            color: Color(0xffEEEEEE)),
+                            color: CustomColors.shadowWhite),
                       ],
                     ),
                     child: Text(
                       "Seleccionar archivos",
-                      style: TextStyle(color: Colors.black),
+                      style: TextStyle(color: CustomColors.black),
                     ),
                   ),
                 ),

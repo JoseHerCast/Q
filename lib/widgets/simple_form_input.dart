@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:licencias/styles/global_styles.dart';
 
 class FormSimpleInput extends StatelessWidget {
   TextEditingController controller;
@@ -14,6 +15,12 @@ class FormSimpleInput extends StatelessWidget {
   Widget? suffixIcon;
   Function(String)? onChanged;
 
+  EdgeInsets? margin;
+
+  BoxDecoration? decoration;
+
+  int? maxLength;
+
   FormSimpleInput(
       {Key? key,
       required this.controller,
@@ -26,31 +33,41 @@ class FormSimpleInput extends StatelessWidget {
       this.focusNode,
       this.suffixIcon,
       this.onChanged,
-      this.icon})
+      this.icon,
+      this.margin,
+      this.decoration,
+      this.maxLength})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      margin: EdgeInsets.only(
-        left: 20,
-        right: 20,
-        top: 20,
-      ),
+      margin: margin != null
+          ? margin
+          : EdgeInsets.only(
+              left: 20,
+              right: 20,
+              top: 20,
+            ),
       padding: EdgeInsets.only(left: 20, right: 20),
       height: textMultiline == true ? 150 : 54,
-      decoration: BoxDecoration(
-        borderRadius: textMultiline == true
-            ? BorderRadius.circular(20)
-            : BorderRadius.circular(50),
-        color: Colors.grey[200],
-        boxShadow: [
-          BoxShadow(
-              offset: Offset(0, 10), blurRadius: 50, color: Color(0xffEEEEEE)),
-        ],
-      ),
+      decoration: decoration != null
+          ? decoration
+          : BoxDecoration(
+              borderRadius: textMultiline == true
+                  ? BorderRadius.circular(20)
+                  : BorderRadius.circular(50),
+              color: CustomColors.lightGrey,
+              boxShadow: [
+                BoxShadow(
+                    offset: Offset(0, 10),
+                    blurRadius: 50,
+                    color: CustomColors.shadowWhite),
+              ],
+            ),
       child: TextFormField(
+        maxLength: maxLength,
         autofocus: false,
         focusNode: focusNode,
         expands: textMultiline == true ? true : false,
@@ -58,12 +75,12 @@ class FormSimpleInput extends StatelessWidget {
         keyboardType: textInputType,
         inputFormatters: hasFormat == true ? [textFormatter!] : [],
         controller: controller,
-        cursorColor: Color(0xff4d6999),
+        cursorColor: CustomColors.subBlue,
         decoration: InputDecoration(
           icon: hasIcon == true
               ? Icon(
                   icon,
-                  color: Color(0xff4d6999),
+                  color: CustomColors.subBlue,
                 )
               : null,
           hintText: hintText,

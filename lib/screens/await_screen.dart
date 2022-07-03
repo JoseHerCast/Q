@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:licencias/screens/login_screen.dart';
+import 'package:licencias/styles/global_styles.dart';
 
 class AwaitScreen extends StatelessWidget {
   const AwaitScreen({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class AwaitScreen extends StatelessWidget {
                       child: Image.asset(
                         "assets/images/success.png",
                         width: 200,
-                        color: Color(0xff4d6999),
+                        color: CustomColors.subBlue,
                       ),
                     ),
                     Container(
@@ -55,21 +56,21 @@ class AwaitScreen extends StatelessWidget {
                 height: 54,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                      colors: [(new Color(0xff4d6999)), new Color(0xff6693c2)],
+                      colors: [CustomColors.subBlue, CustomColors.softBlue],
                       begin: Alignment.centerLeft,
                       end: Alignment.centerRight),
                   borderRadius: BorderRadius.circular(50),
-                  color: Colors.grey[200],
+                  color: CustomColors.lightGrey,
                   boxShadow: [
                     BoxShadow(
                         offset: Offset(0, 10),
                         blurRadius: 50,
-                        color: Color(0xffEEEEEE)),
+                        color: CustomColors.shadowWhite),
                   ],
                 ),
                 child: Text(
                   "Continuar",
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: CustomColors.white),
                 ),
               ),
             ),

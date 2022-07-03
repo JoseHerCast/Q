@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:licencias/screens/home_screen.dart';
 import 'package:licencias/screens/login_screen.dart';
+import 'package:licencias/styles/global_styles.dart';
 import 'package:licencias/widgets/stepper_form.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -21,11 +22,11 @@ class InitState extends State<RegisterScreen> {
           elevation: 0,
           title: const Text(
             'Registro de solicitud',
-            style: TextStyle(color: Color(0xff4d6999)),
+            style: TextStyle(color: CustomColors.subBlue),
           ),
           centerTitle: false,
           titleSpacing: 0,
-          backgroundColor: Colors.white,
+          backgroundColor: CustomColors.white,
         ),
         body: SingleChildScrollView(
           child: StepperForm(),

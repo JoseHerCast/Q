@@ -3,6 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:licencias/styles/global_styles.dart';
+import 'package:line_icons/line_icon.dart';
+import 'package:line_icons/line_icons.dart';
 
 class MiniMapsLocation extends StatefulWidget {
   MiniMapsLocation({Key? key}) : super(key: key);
@@ -37,7 +40,7 @@ class _MiniMapsLocationState extends State<MiniMapsLocation> {
       Container(
         margin: EdgeInsets.only(top: 10),
         child: FloatingActionButton(
-          backgroundColor: Color(0xff4d6999),
+          backgroundColor: CustomColors.subBlue,
           mini: true,
           onPressed: () async {
             Position position = await _determinePosition();
@@ -59,7 +62,7 @@ class _MiniMapsLocationState extends State<MiniMapsLocation> {
             setState(() {});
           },
           child: Icon(
-            Icons.my_location_outlined,
+            LineIcons.crosshairs,
             size: 20,
           ),
         ),

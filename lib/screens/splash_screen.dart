@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:licencias/styles/global_styles.dart';
 import 'package:page_transition/page_transition.dart';
 
 import 'login_screen.dart';
@@ -49,9 +50,9 @@ class StartState extends State<SplashScreen> {
         children: [
           Container(
             decoration: BoxDecoration(
-                color: new Color(0xff4d6999),
+                color: CustomColors.subBlue,
                 gradient: LinearGradient(
-                    colors: [(new Color(0xff76a6cf)), new Color(0xffe8f0f7)],
+                    colors: [CustomColors.lightBlue, CustomColors.clearBlue],
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter)),
           ),

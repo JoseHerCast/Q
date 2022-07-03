@@ -7,22 +7,25 @@ import 'package:http/http.dart' as http;
 class PaymentController extends GetxController {
   Map<String, dynamic>? paymentIntentData;
 
-  Future<void> makePayment(
-      {required String amount, required String currency}) async {
+  Future<void> makePayment({
+    required String amount,
+    required String currency,
+  }) async {
     try {
       paymentIntentData = await createPaymentIntent(amount, currency);
       if (paymentIntentData != null) {
         await Stripe.instance.initPaymentSheet(
-            paymentSheetParameters: SetupPaymentSheetParameters(
-          applePay: true,
-          googlePay: true,
-          testEnv: true,
-          merchantCountryCode: 'US',
-          merchantDisplayName: 'Prospects',
-          customerId: paymentIntentData!['customer'],
-          paymentIntentClientSecret: paymentIntentData!['client_secret'],
-          customerEphemeralKeySecret: paymentIntentData!['ephemeralKey'],
-        ));
+          paymentSheetParameters: SetupPaymentSheetParameters(
+            applePay: true,
+            googlePay: true,
+            testEnv: true,
+            merchantCountryCode: 'MEX',
+            merchantDisplayName: 'Prospects',
+            customerId: paymentIntentData!['customer'],
+            paymentIntentClientSecret: paymentIntentData!['client_secret'],
+            customerEphemeralKeySecret: paymentIntentData!['ephemeralKey'],
+          ),
+        );
         displayPaymentSheet();
       }
     } catch (e, s) {
@@ -51,8 +54,10 @@ class PaymentController extends GetxController {
   }
 
   //  Future<Map<String, dynamic>>
+  //Creating de objecto to POST into Stripe API
   createPaymentIntent(String amount, String currency) async {
     try {
+      //This is the basic structure for an intent
       Map<String, dynamic> body = {
         'amount': calculateAmount(amount),
         'currency': currency,
@@ -63,7 +68,7 @@ class PaymentController extends GetxController {
           body: body,
           headers: {
             'Authorization':
-                'sk_test_51LG5t8LgMDcZoeQmJXnnd1emV42cxHVaaehIWQu6IzO2oSMfZyhcBFJLdsYo4WsOvsBn8VSMDjVEHBrlVfyjEcoT00davC9o1G',
+                'Bearer sk_test_51LG5t8LgMDcZoeQmJXnnd1emV42cxHVaaehIWQu6IzO2oSMfZyhcBFJLdsYo4WsOvsBn8VSMDjVEHBrlVfyjEcoT00davC9o1G',
             'Content-Type': 'application/x-www-form-urlencoded'
           });
       return jsonDecode(response.body);

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:licencias/styles/global_styles.dart';
 
 class FavsScreen extends StatefulWidget {
   FavsScreen({Key? key}) : super(key: key);
@@ -11,7 +12,7 @@ class _FavsScreenState extends State<FavsScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: CustomColors.white,
     );
   }
 }

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:licencias/screens/home_screen.dart';
 import 'package:licencias/screens/login_screen.dart';
 import 'package:licencias/screens/register_screen.dart';
+import 'package:licencias/styles/global_styles.dart';
 import 'package:licencias/widgets/stepper_form.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:page_transition/page_transition.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -26,9 +28,9 @@ class InitState extends State<SignUpScreen> {
               decoration: BoxDecoration(
                 borderRadius:
                     BorderRadius.only(bottomLeft: Radius.circular(90)),
-                color: new Color(0xff4d6999),
+                color: CustomColors.subBlue,
                 gradient: LinearGradient(
-                  colors: [(new Color(0xff76a6cf)), new Color(0xffe8f0f7)],
+                  colors: [CustomColors.lightBlue, CustomColors.clearBlue],
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                 ),
@@ -50,8 +52,8 @@ class InitState extends State<SignUpScreen> {
                       alignment: Alignment.bottomRight,
                       child: Text(
                         "Registro",
-                        style:
-                            TextStyle(fontSize: 16, color: Color(0xff4d6999)),
+                        style: TextStyle(
+                            fontSize: 16, color: CustomColors.subBlue),
                       ),
                     )
                   ],
@@ -65,20 +67,20 @@ class InitState extends State<SignUpScreen> {
               height: 54,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
-                color: Colors.grey[200],
+                color: CustomColors.lightGrey,
                 boxShadow: [
                   BoxShadow(
                       offset: Offset(0, 10),
                       blurRadius: 50,
-                      color: Color(0xffEEEEEE)),
+                      color: CustomColors.shadowWhite),
                 ],
               ),
               child: TextField(
-                cursorColor: Color(0xff4d6999),
+                cursorColor: CustomColors.subBlue,
                 decoration: InputDecoration(
                   icon: Icon(
-                    Icons.person,
-                    color: Color(0xff4d6999),
+                    LineIcons.user,
+                    color: CustomColors.subBlue,
                   ),
                   hintText: "Nombre",
                   enabledBorder: InputBorder.none,
@@ -93,20 +95,20 @@ class InitState extends State<SignUpScreen> {
               height: 54,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
-                color: Colors.grey[200],
+                color: CustomColors.lightGrey,
                 boxShadow: [
                   BoxShadow(
                       offset: Offset(0, 10),
                       blurRadius: 50,
-                      color: Color(0xffEEEEEE)),
+                      color: CustomColors.shadowWhite),
                 ],
               ),
               child: TextField(
-                cursorColor: Color(0xff4d6999),
+                cursorColor: CustomColors.subBlue,
                 decoration: InputDecoration(
                   icon: Icon(
-                    Icons.email,
-                    color: Color(0xff4d6999),
+                    LineIcons.envelope,
+                    color: CustomColors.subBlue,
                   ),
                   hintText: "Correo electrónico",
                   enabledBorder: InputBorder.none,
@@ -121,21 +123,21 @@ class InitState extends State<SignUpScreen> {
               height: 54,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
-                color: Color(0xffEEEEEE),
+                color: CustomColors.shadowWhite,
                 boxShadow: [
                   BoxShadow(
                       offset: Offset(0, 20),
                       blurRadius: 100,
-                      color: Color(0xffEEEEEE)),
+                      color: CustomColors.shadowWhite),
                 ],
               ),
               child: TextField(
-                cursorColor: Color(0xff4d6999),
+                cursorColor: CustomColors.subBlue,
                 decoration: InputDecoration(
-                  focusColor: Color(0xff4d6999),
+                  focusColor: CustomColors.subBlue,
                   icon: Icon(
-                    Icons.vpn_key,
-                    color: Color(0xff4d6999),
+                    LineIcons.key,
+                    color: CustomColors.subBlue,
                   ),
                   hintText: "Contraseña",
                   enabledBorder: InputBorder.none,
@@ -161,21 +163,21 @@ class InitState extends State<SignUpScreen> {
                 height: 54,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                      colors: [(new Color(0xff4d6999)), new Color(0xff6693c2)],
+                      colors: [CustomColors.subBlue, CustomColors.softBlue],
                       begin: Alignment.centerLeft,
                       end: Alignment.centerRight),
                   borderRadius: BorderRadius.circular(50),
-                  color: Colors.grey[200],
+                  color: CustomColors.lightGrey,
                   boxShadow: [
                     BoxShadow(
                         offset: Offset(0, 10),
                         blurRadius: 50,
-                        color: Color(0xffEEEEEE)),
+                        color: CustomColors.shadowWhite),
                   ],
                 ),
                 child: Text(
                   "Registrarse",
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: CustomColors.white),
                 ),
               ),
             ),
@@ -191,7 +193,7 @@ class InitState extends State<SignUpScreen> {
                   GestureDetector(
                     child: Text(
                       "Ingresa ¡ya!",
-                      style: TextStyle(color: Color(0xff4d6999)),
+                      style: TextStyle(color: CustomColors.subBlue),
                     ),
                     onTap: () {
                       // Write Tap Code Here.

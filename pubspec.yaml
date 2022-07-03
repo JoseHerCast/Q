@@ -50,6 +50,9 @@ dependencies:
   top_snackbar_flutter: ^2.0.0
   flutter_stripe: ^3.1.0
   get: ^4.6.5
+  modal_bottom_sheet: ^2.0.1
+  http: ^0.13.4
+  awesome_card: ^1.1.7
 
 dev_dependencies:
   flutter_test:
@@ -80,6 +83,10 @@ flutter:
       - assets/images/Queretaro_Logo.png
       - assets/images/success.png
       - assets/images/flowcode.png
+      - assets/images/bg.png
+      - assets/images/card_bg.png
+      - assets/images/mastercard.png
+      - assets/images/spei.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

@@ -11,6 +11,7 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
+import '../styles/global_styles.dart';
 import '../widgets/simple_form_input.dart';
 
 const loremIpsum =
@@ -157,14 +158,14 @@ class _SearchScreenState extends State<SearchScreen> {
                 },
               ),
               Container(
-                color: Colors.white,
+                color: CustomColors.white,
                 child: ListView.builder(
                   itemBuilder: (context, index) {
                     return ListTile(
                       leading: CircleAvatar(
                         child: Icon(
                           LineIcons.placeOfWorship,
-                          color: Colors.white,
+                          color: CustomColors.white,
                         ),
                       ),
                       title: Text(
@@ -239,7 +240,7 @@ class Card2 extends StatelessWidget {
           height: height,
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.red,
+              color: CustomColors.lightBlue,
               shape: BoxShape.rectangle,
               image: DecorationImage(
                 image: NetworkImage(
@@ -266,6 +267,9 @@ class Card2 extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     title,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ],
               ),
@@ -375,7 +379,7 @@ class Card2 extends StatelessWidget {
                           style: Theme.of(context)
                               .textTheme
                               .button!
-                              .copyWith(color: Color(0xff76a6cf)),
+                              .copyWith(color: CustomColors.lightBlue),
                         ),
                         onPressed: () {
                           controller.toggle();
@@ -393,7 +397,7 @@ class Card2 extends StatelessWidget {
                           style: Theme.of(context)
                               .textTheme
                               .button!
-                              .copyWith(color: Color(0xff76a6cf)),
+                              .copyWith(color: CustomColors.lightBlue),
                         ),
                         onPressed: () {
                           _showQRCode(context, titleQR, descQR, pathQR);
@@ -417,29 +421,38 @@ class Card2 extends StatelessWidget {
       desc: desc,
       buttons: [
         DialogButton(
+          gradient: LinearGradient(
+              colors: [CustomColors.subBlue, CustomColors.softBlue],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight),
+          radius: BorderRadius.circular(50),
+          color: CustomColors.lightGrey,
           child: Text(
             "Cerrar",
-            style: TextStyle(color: Colors.white, fontSize: 20),
+            style: TextStyle(color: CustomColors.white, fontSize: 20),
           ),
           onPressed: () => Navigator.pop(context),
-          color: new Color(0xff4d6999),
         ),
         DialogButton(
+          gradient: LinearGradient(
+              colors: [CustomColors.subGreen, CustomColors.softGreen],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight),
+          radius: BorderRadius.circular(50),
           child: Text(
             "Guardar",
-            style: TextStyle(color: Colors.white, fontSize: 20),
+            style: TextStyle(color: CustomColors.white, fontSize: 20),
           ),
           onPressed: () {
             Navigator.pop(context);
             showTopSnackBar(
               context,
               CustomSnackBar.success(
-                backgroundColor: Color.fromARGB(255, 77, 153, 87),
+                backgroundColor: CustomColors.softGreen,
                 message: "Promoción guardada correctamente. ¡Sigue así!",
               ),
             );
           },
-          color: Color.fromARGB(255, 77, 153, 87),
         )
       ],
       alertAnimation: fadeAlertAnimation,

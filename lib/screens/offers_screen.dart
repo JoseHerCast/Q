@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:licencias/styles/global_styles.dart';
 
 class OffersScreen extends StatefulWidget {
   OffersScreen({Key? key}) : super(key: key);
@@ -11,7 +12,7 @@ class _OffersScreenState extends State<OffersScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: CustomColors.white,
     );
   }
 }

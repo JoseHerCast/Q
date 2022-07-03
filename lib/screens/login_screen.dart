@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:licencias/styles/global_styles.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:page_transition/page_transition.dart';
 import 'home_screen.dart';
 import 'signup_screen.dart';
@@ -27,9 +29,9 @@ class StartState extends State<LoginScreen> {
             height: 300,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(bottomLeft: Radius.circular(90)),
-              color: new Color(0xff4d6999),
+              color: CustomColors.subBlue,
               gradient: LinearGradient(
-                colors: [(new Color(0xff76a6cf)), new Color(0xffe8f0f7)],
+                colors: [CustomColors.lightBlue, CustomColors.clearBlue],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
@@ -51,7 +53,10 @@ class StartState extends State<LoginScreen> {
                   alignment: Alignment.bottomRight,
                   child: Text(
                     "Inicio",
-                    style: TextStyle(fontSize: 16, color: Color(0xff4d6999)),
+                    style: TextStyle(
+                      fontSize: Fonts.mediumFontSize,
+                      color: CustomColors.subBlue,
+                    ),
                   ),
                 )
               ],
@@ -65,20 +70,20 @@ class StartState extends State<LoginScreen> {
             height: 54,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50),
-              color: Colors.grey[200],
+              color: CustomColors.lightGrey,
               boxShadow: [
                 BoxShadow(
                     offset: Offset(0, 10),
                     blurRadius: 50,
-                    color: Color(0xffEEEEEE)),
+                    color: CustomColors.shadowWhite),
               ],
             ),
             child: TextField(
-              cursorColor: Color(0xff4d6999),
+              cursorColor: CustomColors.subBlue,
               decoration: InputDecoration(
                 icon: Icon(
-                  Icons.email,
-                  color: Color(0xff4d6999),
+                  LineIcons.envelope,
+                  color: CustomColors.subBlue,
                 ),
                 hintText: "Correo",
                 enabledBorder: InputBorder.none,
@@ -94,21 +99,21 @@ class StartState extends State<LoginScreen> {
             height: 54,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50),
-              color: Color(0xffEEEEEE),
+              color: CustomColors.shadowWhite,
               boxShadow: [
                 BoxShadow(
                     offset: Offset(0, 20),
                     blurRadius: 100,
-                    color: Color(0xffEEEEEE)),
+                    color: CustomColors.shadowWhite),
               ],
             ),
             child: TextField(
-              cursorColor: Color(0xff4d6999),
+              cursorColor: CustomColors.subBlue,
               decoration: InputDecoration(
-                focusColor: Color(0xff4d6999),
+                focusColor: CustomColors.subBlue,
                 icon: Icon(
-                  Icons.vpn_key,
-                  color: Color(0xff4d6999),
+                  LineIcons.key,
+                  color: CustomColors.subBlue,
                 ),
                 hintText: "Contraseña",
                 enabledBorder: InputBorder.none,
@@ -124,7 +129,12 @@ class StartState extends State<LoginScreen> {
               onTap: () {
                 // Write Click Listener Code Here
               },
-              child: Text("¿Olvidaste tu contraseña? "),
+              child: Text(
+                "¿Olvidaste tu contraseña?",
+                style: TextStyle(
+                  fontSize: Fonts.smallestFontSize,
+                ),
+              ),
             ),
           ),
           /* LOGIN */
@@ -145,21 +155,24 @@ class StartState extends State<LoginScreen> {
               height: 54,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                    colors: [(new Color(0xff4d6999)), new Color(0xff6693c2)],
+                    colors: [(CustomColors.subBlue), CustomColors.lightBlue],
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight),
                 borderRadius: BorderRadius.circular(50),
-                color: Colors.grey[200],
+                color: CustomColors.lightGrey,
                 boxShadow: [
                   BoxShadow(
                       offset: Offset(0, 10),
                       blurRadius: 50,
-                      color: Color(0xffEEEEEE)),
+                      color: CustomColors.shadowWhite),
                 ],
               ),
               child: Text(
                 "Iniciar sesión",
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(
+                  fontSize: Fonts.smallFontSize,
+                  color: CustomColors.white,
+                ),
               ),
             ),
           ),
@@ -169,11 +182,19 @@ class StartState extends State<LoginScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("¿Aún no te has registrado?  "),
+                Text(
+                  "¿Aún no te has registrado?  ",
+                  style: TextStyle(
+                    fontSize: Fonts.smallestFontSize,
+                  ),
+                ),
                 GestureDetector(
                   child: Text(
                     "Registrate ¡ya!",
-                    style: TextStyle(color: Color(0xff4d6999)),
+                    style: TextStyle(
+                      color: CustomColors.subBlue,
+                      fontSize: Fonts.smallestFontSize,
+                    ),
                   ),
                   onTap: () {
                     // Write Tap Code Here.
