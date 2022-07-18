@@ -33,7 +33,7 @@ class StartState extends State<LoginScreen> {
               gradient: LinearGradient(
                 colors: [CustomColors.lightBlue, CustomColors.clearBlue],
                 begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
+                end: Alignment(0.5, 2),
               ),
             ),
             child: Center(

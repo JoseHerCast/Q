@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:licencias/screens/favs_screen.dart';
 import 'package:licencias/screens/map_screen.dart';
-import 'package:licencias/screens/offers_screen.dart';
+import 'package:licencias/screens/categories_screen.dart';
 import 'package:licencias/screens/search_screen.dart';
 
 /// It returns a list of widgets, which are the screens of the app
@@ -23,9 +23,9 @@ class NavPages extends StatelessWidget {
     /// Creating a list of widgets.
     List<Widget> _myPages = [
       MapScreen(),
-      FavsScreen(),
+      //FavsScreen(),
       SearchScreen(),
-      OffersScreen()
+      CategoriesScreen()
     ];
     return _myPages[index];
   }

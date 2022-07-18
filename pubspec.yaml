@@ -53,6 +53,7 @@ dependencies:
   modal_bottom_sheet: ^2.0.1
   http: ^0.13.4
   awesome_card: ^1.1.7
+  image_picker: ^0.8.5+3
 
 dev_dependencies:
   flutter_test:
@@ -87,6 +88,31 @@ flutter:
       - assets/images/card_bg.png
       - assets/images/mastercard.png
       - assets/images/spei.png
+      - assets/images/profile.png
+      - assets/images/cat1.png
+      - assets/images/cat1_pork.png
+      - assets/images/cat1_chicken.png
+      - assets/images/cat1_fish.png
+      - assets/images/cat1_sausages.png
+      - assets/images/cat2.png
+      - assets/images/cat2_fruits.png
+      - assets/images/cat2_veggies.png
+      - assets/images/cat2_seeds.png
+      - assets/images/cat2_others.png
+      - assets/images/cat3.png
+      - assets/images/cat3_school.png
+      - assets/images/cat3_office.png
+      - assets/images/cat3_art.png
+      - assets/images/cat3_printing.png
+      - assets/images/cat4.png
+      - assets/images/cat4_tools.png
+      - assets/images/cat4_electricity.png
+      - assets/images/cat4_electronic.png
+      - assets/images/cat4_building.png
+      - assets/images/cat5.png
+      - assets/images/cat5_bakery.png
+      - assets/images/cat5_pastry.png
+      - assets/images/cat5_cake.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

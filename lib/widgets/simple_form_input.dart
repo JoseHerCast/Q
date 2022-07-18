@@ -51,7 +51,7 @@ class FormSimpleInput extends StatelessWidget {
               top: 20,
             ),
       padding: EdgeInsets.only(left: 20, right: 20),
-      height: textMultiline == true ? 150 : 54,
+      height: textMultiline == true ? 200 : 54,
       decoration: decoration != null
           ? decoration
           : BoxDecoration(

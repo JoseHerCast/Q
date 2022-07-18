@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:licencias/screens/home_screen.dart';
 import 'package:licencias/screens/login_screen.dart';
 import 'package:licencias/styles/global_styles.dart';
+import 'package:licencias/widgets/main_appbar.dart';
 import 'package:licencias/widgets/stepper_form.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -18,16 +19,7 @@ class InitState extends State<RegisterScreen> {
     return WillPopScope(
       onWillPop: () => Future.value(false),
       child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          title: const Text(
-            'Registro de solicitud',
-            style: TextStyle(color: CustomColors.subBlue),
-          ),
-          centerTitle: false,
-          titleSpacing: 0,
-          backgroundColor: CustomColors.white,
-        ),
+        appBar: MainAppbar(title: 'Registro de solicitud'),
         body: SingleChildScrollView(
           child: StepperForm(),
         ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:licencias/controllers/payment_controller.dart';
 import 'package:licencias/styles/global_styles.dart';
+import 'package:licencias/widgets/main_appbar.dart';
 import 'package:licencias/widgets/simple_form_input.dart';
 import 'package:line_icons/line_icons.dart';
 import 'dart:math' as math;
@@ -66,20 +67,7 @@ class _CreditCardScreenState extends State<CreditCardScreen> {
     return WillPopScope(
       onWillPop: () => Future.value(false),
       child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          leading: IconButton(
-            icon:
-                Icon(LineIcons.angleLeft, size: 28, color: CustomColors.white),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-          backgroundColor: CustomColors.lightBlue,
-          title: Text(
-            "Agregar tarjeta",
-            style: TextStyle(color: CustomColors.white),
-          ),
-          centerTitle: true,
-        ),
+        appBar: MainAppbar(title: 'Agregar tarjeta'),
         body: Container(
           decoration: BoxDecoration(
             color: CustomColors.white,
@@ -115,12 +103,6 @@ class _CreditCardScreenState extends State<CreditCardScreen> {
                         /* Form here */
                         FormSimpleInput(
                           margin: EdgeInsets.only(left: 10, right: 10, top: 30),
-                          decoration: BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                  color: CustomColors.lightBlue, width: 1.5),
-                            ),
-                          ),
                           textInputType: TextInputType.number,
                           hasFormat: true,
                           textFormatter: maskPropertyCardNumber,
@@ -145,47 +127,6 @@ class _CreditCardScreenState extends State<CreditCardScreen> {
                         ),
                         FormSimpleInput(
                           margin: EdgeInsets.only(left: 10, right: 10, top: 30),
-                          decoration: BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                  color: CustomColors.lightBlue, width: 1.5),
-                            ),
-                          ),
-                          textInputType: TextInputType.number,
-                          hasFormat: true,
-                          textFormatter: maskPropertyExpiryDate,
-                          controller: expiryFieldCtrl,
-                          hintText: "Vigencia",
-                          onChanged: (value) {
-                            var newDateValue = value.trim();
-                            final isPressingBackspace =
-                                expiryDate.length > newDateValue.length;
-                            final containsSlash = newDateValue.contains('/');
-
-                            if (newDateValue.length >= 2 &&
-                                !containsSlash &&
-                                !isPressingBackspace) {
-                              newDateValue = newDateValue.substring(0, 2) +
-                                  '/' +
-                                  newDateValue.substring(2);
-                            }
-                            setState(() {
-                              expiryFieldCtrl.text = newDateValue;
-                              expiryFieldCtrl.selection =
-                                  TextSelection.fromPosition(TextPosition(
-                                      offset: newDateValue.length));
-                              expiryDate = newDateValue;
-                            });
-                          },
-                        ),
-                        FormSimpleInput(
-                          margin: EdgeInsets.only(left: 10, right: 10, top: 30),
-                          decoration: BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                  color: CustomColors.lightBlue, width: 1.5),
-                            ),
-                          ),
                           textInputType: TextInputType.name,
                           controller: cardHolderCtrl,
                           hintText: "Nombre del titular",
@@ -195,28 +136,66 @@ class _CreditCardScreenState extends State<CreditCardScreen> {
                             });
                           },
                         ),
-                        FormSimpleInput(
-                          margin: EdgeInsets.only(left: 10, right: 10, top: 30),
-                          decoration: BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                  color: CustomColors.lightBlue, width: 1.5),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SizedBox(
+                              width: 180,
+                              child: FormSimpleInput(
+                                margin: EdgeInsets.only(
+                                    left: 10, right: 10, top: 30),
+                                textInputType: TextInputType.number,
+                                hasFormat: true,
+                                textFormatter: maskPropertyExpiryDate,
+                                controller: expiryFieldCtrl,
+                                hintText: "Vigencia",
+                                onChanged: (value) {
+                                  var newDateValue = value.trim();
+                                  final isPressingBackspace =
+                                      expiryDate.length > newDateValue.length;
+                                  final containsSlash =
+                                      newDateValue.contains('/');
+
+                                  if (newDateValue.length >= 2 &&
+                                      !containsSlash &&
+                                      !isPressingBackspace) {
+                                    newDateValue =
+                                        newDateValue.substring(0, 2) +
+                                            '/' +
+                                            newDateValue.substring(2);
+                                  }
+                                  setState(() {
+                                    expiryFieldCtrl.text = newDateValue;
+                                    expiryFieldCtrl.selection =
+                                        TextSelection.fromPosition(TextPosition(
+                                            offset: newDateValue.length));
+                                    expiryDate = newDateValue;
+                                  });
+                                },
+                              ),
                             ),
-                          ),
-                          textInputType: TextInputType.number,
-                          hasFormat: true,
-                          textFormatter: maskPropertyCVV,
-                          controller: cvvCtrl,
-                          hintText: "CVV",
-                          onChanged: (value) {
-                            setState(() {
-                              cvv = value;
-                            });
-                          },
-                          focusNode: _focusNode,
+                            SizedBox(
+                              width: 180,
+                              child: FormSimpleInput(
+                                margin: EdgeInsets.only(
+                                    left: 10, right: 10, top: 30),
+                                textInputType: TextInputType.number,
+                                hasFormat: true,
+                                textFormatter: maskPropertyCVV,
+                                controller: cvvCtrl,
+                                hintText: "CVV",
+                                onChanged: (value) {
+                                  setState(() {
+                                    cvv = value;
+                                  });
+                                },
+                                focusNode: _focusNode,
+                              ),
+                            ),
+                          ],
                         ),
                         const SizedBox(
-                          height: 20,
+                          height: 60,
                         ),
                         GestureDetector(
                           onTap: () {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:licencias/screens/await_screen.dart';
 import 'package:licencias/screens/credit_card_screen.dart';
@@ -6,7 +7,7 @@ import 'package:licencias/screens/favs_screen.dart';
 import 'package:licencias/screens/home_screen.dart';
 import 'package:licencias/screens/login_screen.dart';
 import 'package:licencias/screens/map_screen.dart';
-import 'package:licencias/screens/offers_screen.dart';
+import 'package:licencias/screens/categories_screen.dart';
 import 'package:licencias/screens/payment_screen.dart';
 import 'package:licencias/screens/register_screen.dart';
 import 'package:licencias/screens/search_screen.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
       title: 'Demo Licenciamiento Queretaro',
       theme: ThemeData(
         primaryColor: CustomColors.lightBlue,
-        appBarTheme: AppBarTheme(backgroundColor: CustomColors.lightBlue),
+        appBarTheme: AppBarTheme(backgroundColor: Color(0x00ffffff)),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: SplashScreen(),
@@ -49,7 +50,7 @@ class MyApp extends StatelessWidget {
         '/maps': (BuildContext context) => new MapScreen(),
         '/favs': (BuildContext context) => new FavsScreen(),
         '/search': (BuildContext context) => new SearchScreen(),
-        '/offers': (BuildContext context) => new OffersScreen(),
+        '/offers': (BuildContext context) => new CategoriesScreen(),
         '/payments': (BuildContext context) => new PaymentScreen(),
         '/validating': (BuildContext context) => new AwaitScreen(),
         '/addcard': (BuildContext context) => new CreditCardScreen(),

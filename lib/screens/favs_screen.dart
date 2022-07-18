@@ -11,8 +11,8 @@ class FavsScreen extends StatefulWidget {
 class _FavsScreenState extends State<FavsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: CustomColors.white,
+    return ListView(
+      children: [Container()],
     );
   }
 }

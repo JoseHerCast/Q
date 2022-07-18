@@ -156,13 +156,27 @@ class _StepperFormState extends State<StepperForm> {
           TextButton(
             onPressed: details.onStepCancel,
             child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    colors: [CustomColors.subRed, CustomColors.softRed],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight),
+                borderRadius: BorderRadius.circular(50),
+                color: CustomColors.lightGrey,
+                boxShadow: [
+                  BoxShadow(
+                      offset: Offset(0, 10),
+                      blurRadius: 50,
+                      color: CustomColors.shadowWhite),
+                ],
+              ),
               alignment: Alignment.center,
               margin: EdgeInsets.only(left: 10, right: 10, top: 20),
               padding: EdgeInsets.only(left: 20, right: 20),
               height: 54,
               child: Text(
                 "Cancelar",
-                style: TextStyle(color: CustomColors.softGrey),
+                style: TextStyle(color: CustomColors.white),
               ),
             ),
           ),

@@ -6,7 +6,7 @@ class Fonts {
   static const double smallFontSize = 16;
   static const double mediumFontSize = 18;
   static const double bigFontSize = 20;
-  static const double biggestFontSize = 20;
+  static const double biggestFontSize = 22;
 }
 
 class CustomColors {
@@ -26,4 +26,16 @@ class CustomColors {
   static Color? white = Colors.white;
   static Color? white54 = Colors.white54;
   static const Color? black = Colors.black;
+
+  static const Color MEATS = Color(0xFFC02828);
+  static const Color PASTRIES = Color(0xFFC06C28);
+  static const Color FRUITS = Color(0xFF28C080);
+  static const Color TOOLS = Color(0xFF747474);
+  static const Color OFFICE = Color(0xFF1BB1DE);
+
+  // other colors
+  static const Color DARK_GREEN = Color(0xFF1B6948);
+  static const Color DARKER_GREEN = Color(0xFF0B452C);
+  static const Color HIGHTLIGHT_DEFAULT = Color(0xFF5A8E12);
+  static const Color LIGHTER_GREEN = Color(0xFFC1E09E);
 }

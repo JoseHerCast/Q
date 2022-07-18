@@ -14,8 +14,14 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import '../styles/global_styles.dart';
 import '../widgets/simple_form_input.dart';
 
-const loremIpsum =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+const cremeriaDescription =
+    "Con mas de 40 años de tradición en la fabricación de productos derivados de la leche, en Cremería El coléga ofrecemos un gran surtido de productos artesanales de alta calidad.\nCremería El coléga elabora sus productos con leche de alto valor nutrimental y cada uno de ellos es procesado con técnicas tradicionales que nos permiten acercar el amor del campo hasta su mesa.";
+
+const carniceriaDescription =
+    "Carnicería Lupita es orgullosamente mexicana, dedicada a la producción y comercialización de proteína animal de calidad.\nLlevamos la mejor selección de carnes importadas a tu casa, para tus fiestas, reuniones y parrilladas.";
+
+const panaderiaDescription =
+    "Somos una empresa dedicada a la producción y distribución de productos de panadería, pastelería y repostería de alta calidad y sabor; fundada en 2013.\nContamos con una deliciosa gama de pasteles para toda ocasión, panadería y postres. Servicio a domicilio. ¡Deleitando tus sentidos!";
 
 /// `SearchScreen` is a `StatefulWidget` that creates a `_SearchScreenState` object
 class SearchScreen extends StatefulWidget {
@@ -70,8 +76,9 @@ class _SearchScreenState extends State<SearchScreen> {
             child: ListView(
               children: [
                 Card2(
-                  title: 'Cremería "El colega"',
+                  title: 'Cremería "El coléga"',
                   address: 'Los Héroes, Ixtapaluca',
+                  description: cremeriaDescription,
                   mainCover:
                       'https://mitiendatx.com/img/cremeria-800x600-3.jpg',
                   imageLT: 'https://mitiendatx.com/img/cremeria-800x600-1.jpg',
@@ -87,6 +94,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 Card2(
                   title: 'Carnicería "Lupita"',
                   address: 'Fraccionamiento Linda Vista, Chalco',
+                  description: carniceriaDescription,
                   mainCover:
                       'https://elinsignia.com/wp-content/uploads/2017/11/carniceria.jpg',
                   imageLT:
@@ -104,6 +112,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 Card2(
                   title: 'Panaderia Cielo',
                   address: '4 Vientos, Ixtapaluca',
+                  description: panaderiaDescription,
                   mainCover:
                       'https://media.timeout.com/images/105618884/image.jpg',
                   imageLT:
@@ -218,6 +227,7 @@ class Card2 extends StatelessWidget {
   String titleQR;
   String descQR;
   String pathQR;
+  String description;
 
   Card2({
     Key? key,
@@ -231,6 +241,7 @@ class Card2 extends StatelessWidget {
     required this.titleQR,
     required this.descQR,
     required this.pathQR,
+    required this.description,
   }) : super(key: key);
 
   @override
@@ -261,7 +272,7 @@ class Card2 extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -290,12 +301,15 @@ class Card2 extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
                     title,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   Text(
                     address,
@@ -329,14 +343,18 @@ class Card2 extends StatelessWidget {
 
     buildExpanded3() {
       return Padding(
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              loremIpsum,
+              description,
               softWrap: true,
             ),
+            SizedBox(
+              height: 20,
+            ),
+            Text('Teléfono: 555 555 55 55'),
           ],
         ),
       );
@@ -373,17 +391,23 @@ class Card2 extends StatelessWidget {
                     builder: (context) {
                       var controller =
                           ExpandableController.of(context, required: true)!;
-                      return TextButton(
-                        child: Text(
-                          controller.expanded ? "Ocultar" : "Mostrar",
-                          style: Theme.of(context)
-                              .textTheme
-                              .button!
-                              .copyWith(color: CustomColors.lightBlue),
+                      return Padding(
+                        padding: const EdgeInsets.only(
+                          left: 20,
+                          top: 10,
                         ),
-                        onPressed: () {
-                          controller.toggle();
-                        },
+                        child: TextButton(
+                          child: Text(
+                            controller.expanded ? "Ocultar" : "Mostrar",
+                            style: Theme.of(context)
+                                .textTheme
+                                .button!
+                                .copyWith(color: CustomColors.lightBlue),
+                          ),
+                          onPressed: () {
+                            controller.toggle();
+                          },
+                        ),
                       );
                     },
                   ),
@@ -391,17 +415,20 @@ class Card2 extends StatelessWidget {
                     builder: (context) {
                       var controller =
                           ExpandableController.of(context, required: true)!;
-                      return TextButton(
-                        child: Text(
-                          controller.expanded ? "Código promocional" : "",
-                          style: Theme.of(context)
-                              .textTheme
-                              .button!
-                              .copyWith(color: CustomColors.lightBlue),
+                      return Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: TextButton(
+                          child: Text(
+                            controller.expanded ? "Código promocional" : "",
+                            style: Theme.of(context)
+                                .textTheme
+                                .button!
+                                .copyWith(color: CustomColors.lightBlue),
+                          ),
+                          onPressed: () {
+                            _showQRCode(context, titleQR, descQR, pathQR);
+                          },
                         ),
-                        onPressed: () {
-                          _showQRCode(context, titleQR, descQR, pathQR);
-                        },
                       );
                     },
                   ),

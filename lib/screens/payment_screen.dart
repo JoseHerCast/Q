@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:licencias/screens/home_screen.dart';
 import 'package:licencias/screens/select_card_screen.dart';
 import 'package:licencias/styles/global_styles.dart';
+import 'package:licencias/widgets/main_appbar.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
@@ -19,20 +20,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
     return WillPopScope(
       onWillPop: () => Future.value(false),
       child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          leading: IconButton(
-            icon:
-                Icon(LineIcons.angleLeft, size: 28, color: CustomColors.white),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-          backgroundColor: CustomColors.lightBlue,
-          title: Text(
-            "Elige un método de pago",
-            style: TextStyle(color: CustomColors.white),
-          ),
-          centerTitle: true,
-        ),
+        appBar: MainAppbar(title: 'Elige un método de pago'),
         body: ListView(
           children: [
             Center(

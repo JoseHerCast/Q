@@ -6,6 +6,7 @@ import 'package:licencias/controllers/payment_controller.dart';
 import 'package:licencias/screens/credit_card_screen.dart';
 import 'package:licencias/screens/home_screen.dart';
 import 'package:licencias/styles/global_styles.dart';
+import 'package:licencias/widgets/main_appbar.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
@@ -26,20 +27,7 @@ class _SelectCardScreenState extends State<SelectCardScreen> {
     return WillPopScope(
       onWillPop: () => Future.value(false),
       child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          leading: IconButton(
-            icon:
-                Icon(LineIcons.angleLeft, size: 28, color: CustomColors.white),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-          backgroundColor: CustomColors.lightBlue,
-          title: Text(
-            "Pago con tarjeta",
-            style: TextStyle(color: CustomColors.white),
-          ),
-          centerTitle: true,
-        ),
+        appBar: MainAppbar(title: 'Pago con tarjeta'),
         body: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
